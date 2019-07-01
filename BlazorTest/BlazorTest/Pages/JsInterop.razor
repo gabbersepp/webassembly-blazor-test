@@ -9,6 +9,9 @@
 <b>Call function and retrive value</b>
 <p>When clicking <span class="clickable" onclick=@RetriveCurrentDate>here</span>, a JS function is called which returns the current date as string. Current date: <b>@currentDate</b></p>
 
+<b>Call function that does not return anything</b>
+<p>When clicking <span class="clickable" onclick=@ShowAlert>here</span>, a JS function is called which returns nothing but should show an alert. </p>
+
 @code {
     string currentDate = "<empty>";
 }
@@ -17,5 +20,10 @@
     void RetriveCurrentDate()
     {
         currentDate = this.ExecuteJsSync<string>(JSRuntime, "getCurrentDate");
+    }
+
+    void ShowAlert()
+    {
+        this.ExecuteJsSync(JSRuntime, "showAlert", new object[] { "Test" });
     }
 }
