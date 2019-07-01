@@ -1,0 +1,26 @@
+﻿<div class="@NavMenuCssClass">
+    <div @onclick="@ToggleNavMenu" class="hamburger-container"><div class="hamburger"></div></div>
+    <ul>
+        <li>
+            <NavLink href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="counter">
+                Counter
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    bool collapseNavMenu = false;
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

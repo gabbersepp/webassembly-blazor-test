@@ -1,0 +1,52 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    background-image: url("/images/background.png");
+    height: 100%;
+}
+
+#sidebar {
+    width: 30%;
+    float: left;
+    position: relative;
+}
+
+#main {
+    width: 70%;
+    float: right;
+}
+
+#main::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.hamburger-container {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger {
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: black;
+    box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
+}
+
+#sidebar > div.collapse > ul {
+    display: none;
+}
