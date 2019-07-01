@@ -50,3 +50,7 @@
 #sidebar > div.collapse > ul {
     display: none;
 }
+
+.clickable {
+    cursor: pointer;
+}

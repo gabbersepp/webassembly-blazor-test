@@ -1,0 +1,21 @@
+@page "/jsinterop"
+@using BlazorTest.Components
+@inherits BaseViewComponent
+@inject IJSRuntime JSRuntime
+
+<h3>JsInterop</h3>
+<p>One can call JS functions from C# and vice versa.</p>
+
+<b>Call function and retrive value</b>
+<p>When clicking <span class="clickable" onclick=@RetriveCurrentDate>here</span>, a JS function is called which returns the current date as string. Current date: <b>@currentDate</b></p>
+
+@code {
+    string currentDate = "<empty>";
+}
+
+@functions {
+    void RetriveCurrentDate()
+    {
+        currentDate = this.ExecuteJsSync<string>(JSRuntime, "getCurrentDate");
+    }
+}
