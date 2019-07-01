@@ -1,0 +1,24 @@
+@page "/navigate"
+@using BlazorTest.Components
+@inherits BaseViewComponent
+@inject Microsoft.AspNetCore.Components.IUriHelper UriHelper
+
+<h3>Insert route (e.g. jsinterop or counter) and then click the button to trigger navigation</h3>
+<input type="text" onchange=@SetRoute />
+<button onclick=@NavigateTo>navigate</button>
+
+
+@code {
+    string route = "<empty>";
+    }
+
+@functions {
+    void NavigateTo() {
+        UriHelper.NavigateTo(route);
+    }
+
+    void SetRoute(UIChangeEventArgs evt)
+    {
+        route = (string)evt.Value;
+    }
+}
