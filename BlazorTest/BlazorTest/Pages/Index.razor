@@ -5,3 +5,16 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<br />
+<input type="text" onchange=@HandleMyPropertyChange />
+<a onclick="javascript:showMessage('@inputValue')">Show Message</a>
+
+@code {
+    string inputValue = "";
+
+    void HandleMyPropertyChange(UIChangeEventArgs evt)
+    {
+        inputValue = (string)evt.Value;
+    }
+}
