@@ -1,0 +1,17 @@
+@inherits BlazorTest.Components.BaseViewComponent
+@inject IJSRuntime JSRuntime
+@page "/promisetask"
+
+<h3>PromiseTask</h3>
+<p>This example shows how you can combine JS promises with C# tasks.</p>
+<p><button onclick=@WaitForPromise>Click to wait until promise resolved</button></p>
+<p>Result: @result</p>
+
+@code {
+string result = "";
+
+async Task WaitForPromise()
+{
+    result = await this.ExecuteJsAsync<string>(JSRuntime, "resolvePromiseAfterMS", new[] { 5000 });
+}
+}
